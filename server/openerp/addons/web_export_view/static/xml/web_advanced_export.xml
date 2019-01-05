@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- vim:fdl=1:
+-->
+<templates id="template" xml:space="preserve">
+
+<t t-extend="ViewPager">
+    <t t-jquery=".oe_pager_value" t-operation="prepend">
+                   
+        <a t-if="(widget.ViewManager &amp;&amp; widget.ViewManager.active_view) === 'list'  &amp;&amp; widget.ViewManager.process_model === 'export.carrier.data'" 
+                    class="oe_bold oe_list_button_import_excel oe_form_button"
+                    id="button_export_excel"
+                    href="#">Export as Excel</a>
+    </t>
+</t>
+</templates>

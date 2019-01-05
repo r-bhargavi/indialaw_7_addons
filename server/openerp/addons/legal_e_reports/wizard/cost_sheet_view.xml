@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+     <data>
+     
+             
+       <record id="legale_cost_sheet_form" model="ir.ui.view">
+            <field name="name">Cost Sheet Report</field>
+            <field name="model">legal.cost.sheet</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Cost Sheet Report" version="7.0"> 
+                    <group>
+                        <field name="period_id" required="1"/>
+                    </group>
+                    
+                    <footer>
+                        <button name="print_cost_sheet_report" string="Print"  class="oe_highlight" icon="gtk-ok" type="object" colspan="1"/>
+                         or
+                         <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>                                                       
+                </form>
+            </field>
+        </record>
+        
+        
+         <record id="action_legale_cost_sheet_form" model="ir.actions.act_window">
+             <field name="name">Cost Sheet Report</field>
+             <field name="res_model">legal.cost.sheet</field>
+             <field name="type">ir.actions.act_window</field>
+             <field name="view_type">form</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+        </record>
+        
+        <menuitem parent="legal_e.menu_consolidated_bill_main" id="menu_action_legale_cost_sheet" icon="STOCK_PRINT" name="Cost Sheet Report" action="action_legale_cost_sheet_form" sequence="9998"/>
+            
+
+       
+    </data>
+</openerp>

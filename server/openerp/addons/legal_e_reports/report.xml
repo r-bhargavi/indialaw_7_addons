@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <report string="MIS Report"
+                model="court.proceedings"
+                multi="False"
+                auto="True"
+                report_type="html"
+                name="jasper_mis_report"
+                rml="legal_e_reports/report/mis_report.jrxml"
+                id="report_legale_mis_report_jasper"
+                menu="False"/>
+                
+                
+         <report string="Cost Sheet Report"
+                model="legal.cost.sheet"
+                multi="False"
+                auto="True"
+                report_type="html"
+                name="jasper_cost_report"
+                rml="legal_e_reports/report/cost_report.jrxml"
+                id="report_legale_cost_report_jasper"
+                menu="False"/>
+                
+         <report string="Monthly Bill Report"
+                model="legal.monthly.bill"
+                multi="False"
+                auto="True"
+                report_type="html"
+                name="jasper_monthly_bill"
+                rml="legal_e_reports/report/monthly_bill.jrxml"
+                id="report_legal_monthly_bill_jasper"
+                menu="False"/>
+                
+                
+          <report
+            auto="False"
+            id="legale_voucher_print"
+            model="account.move"
+            name="legale.account.move"
+            rml="legal_e_reports/report/voucher_print.rml"
+            string="Voucher Print"
+            usage="default"
+            />
+        
+    
+    </data>
+</openerp>

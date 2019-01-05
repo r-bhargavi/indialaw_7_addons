@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+     <data>
+     
+             
+       <record id="view_court_diary_form_inherit" model="ir.ui.view">
+            <field name="name">court.diary.form.inherit</field>
+            <field name="model">court.diary</field>
+            <field name="inherit_id" ref="legal_e.court_diary_form"/>
+            <field name="arch" type="xml">                     
+                <xpath expr='//a[@id="button_export_excel_court_diary"]' position="before">
+                    <button name="print_mis_report" string="MIS" icon="gtk-go-forward" type="object"  class="oe_highlight"/>
+                    or
+                </xpath>
+            </field>
+        </record>
+
+       
+    </data>
+</openerp>

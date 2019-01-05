@@ -1,0 +1,69 @@
+<?xml version="1.0" ?>
+<openerp>
+<data>
+
+    <record model="workflow.activity" id="act_validate_management"> <!-- first_accepted -->
+        <field name="wkf_id" ref="hr_holidays.wkf_holidays" />
+        <field name="name">management_validate</field>
+        <field name="kind">function</field>
+        <field name="action">holidays_management_validate()</field>
+        <field name="split_mode">OR</field>
+    </record>
+
+    <!--
+        workflow transitions for mangement department validation
+    -->
+
+    <record model="workflow.transition" id="holiday_validate_management">
+        <field name="act_from" ref="hr_holidays.act_confirm" />
+        <field name="act_to" ref="act_validate_management" />
+        <field name="signal">validate</field>
+        <field name="condition">not double_validation and check_department()</field>
+        <field name="group_id" ref="base.group_hr_user"/>
+    </record>
+    
+    <record model="workflow.transition" id="hr_holidays.holiday_confirm2validate"> <!-- 2. submitted->accepted (validate signal) if not double_validation-->
+        <field name="act_from" ref="hr_holidays.act_confirm" />
+        <field name="act_to" ref="hr_holidays.act_validate" />
+        <field name="signal">validate</field>
+        <field name="condition">not double_validation and not check_department()</field>
+        <field name="group_id" ref="base.group_hr_user"/>
+    </record>
+    
+    <!--Inherit second validation for management transition -->
+    
+    <record model="workflow.transition" id="holiday_validate1_validate_management"> <!-- 4. first_accepted -> accepted (second_validate  signal) -->
+        <field name="act_from" ref="hr_holidays.act_validate1" />
+        <field name="act_to" ref="act_validate_management" />
+        <field name="condition">check_department()</field>
+        <field name="signal">second_validate</field>
+        <field name="group_id" ref="base.group_hr_user"/>
+    </record>
+    
+    <record model="workflow.transition" id="hr_holidays.holiday_validate1_validate"> <!-- 4. first_accepted -> accepted (second_validate  signal) -->
+        <field name="act_from" ref="hr_holidays.act_validate1" />
+        <field name="act_to" ref="hr_holidays.act_validate" />
+        <field name="condition">not check_department()</field>
+        <field name="signal">second_validate</field>
+        <field name="group_id" ref="base.group_hr_user"/>
+    </record>
+    
+    <!--Management approval -->
+    <record model="workflow.transition" id="holiday_management_approval"> <!-- 4. first_accepted -> accepted (second_validate  signal) -->
+        <field name="act_from" ref="act_validate_management" />
+        <field name="act_to" ref="hr_holidays.act_validate" />
+        <field name="condition">True</field>
+        <field name="signal">management_validation</field>
+        <field name="group_id" ref="base.group_hr_user"/>
+    </record>
+    
+    <record model="workflow.transition" id="holiday_management_validate_refuse"> <!-- 4. first_accepted->refused (refuse signal) -->
+        <field name="act_from" ref="act_validate_management" />
+        <field name="act_to" ref="hr_holidays.act_refuse" />
+        <field name="signal">refuse</field>
+        <field name="condition">True</field>
+        <field name="group_id" ref="base.group_hr_user"/>
+    </record>
+
+</data>
+</openerp>

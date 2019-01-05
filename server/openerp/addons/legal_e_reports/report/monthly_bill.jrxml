@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="monthly_bill" language="groovy" pageWidth="1800" pageHeight="842" columnWidth="1760" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8db8e4a2-6360-4764-859d-7d9eb19a7a2b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="2"/>
+	<queryString language="xPath">
+		<![CDATA[]]>
+	</queryString>
+	<field name="date" class="java.lang.String">
+		<fieldDescription><![CDATA[date]]></fieldDescription>
+	</field>
+	<field name="state_id" class="java.lang.String">
+		<fieldDescription><![CDATA[state_id]]></fieldDescription>
+	</field>
+	<field name="ho_branch_id" class="java.lang.String">
+		<fieldDescription><![CDATA[ho_branch_id]]></fieldDescription>
+	</field>
+	<field name="division_id" class="java.lang.String">
+		<fieldDescription><![CDATA[division_id]]></fieldDescription>
+	</field>
+	<field name="year_ctc" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[year_ctc]]></fieldDescription>
+	</field>
+	<field name="month_ctc" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[month_ctc]]></fieldDescription>
+	</field>
+	<field name="profession_fee" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[profession_fee]]></fieldDescription>
+	</field>
+	<field name="expense" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[expense]]></fieldDescription>
+	</field>
+	<field name="gross" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[gross]]></fieldDescription>
+	</field>
+	<field name="mre" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[mre]]></fieldDescription>
+	</field>
+	<field name="net" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[net]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="f83416fe-1213-49d1-b231-76a9eb113665" x="0" y="0" width="1371" height="79"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Monthly Bill Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="51" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="00d11acd-3506-4330-b08d-6ec425328ed0" mode="Opaque" x="0" y="0" width="100" height="51" backcolor="#1BF2AE"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[STATE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29372e9e-7c3d-4687-86c8-fec9c851eccc" mode="Opaque" x="100" y="0" width="100" height="51" backcolor="#1BF2AE"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SHO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="49b20a71-bff4-4b06-bb36-0c4639118288" mode="Opaque" x="200" y="0" width="189" height="51" backcolor="#1BF2AE"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DEPARTMENT/DIVISION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bc2b331a-25bf-4220-8d90-1e31c3b726a1" mode="Opaque" x="389" y="0" width="100" height="51" backcolor="#1BF2AE"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[YEARLY CTC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7483d3cc-5af1-456c-8450-738eced44fba" mode="Opaque" x="489" y="0" width="119" height="51" backcolor="#1BF2AE"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MONTHLY CTC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="441b4d87-cc1b-4004-94b3-3c99e6a4f688" mode="Opaque" x="608" y="31" width="218" height="20" backcolor="#1BF2AE"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Professional Fees Billing]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7c0185ae-b629-423b-9713-4d231ed82718" mode="Opaque" x="826" y="31" width="156" height="20" backcolor="#1BF2AE"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Expense Billing]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="634eb5ec-5d07-412f-9658-c3375bccea48" mode="Opaque" x="982" y="31" width="123" height="20" backcolor="#1BF2AE"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gross Billing]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="cddedac3-6e94-4769-b999-a5866c6fa93e" mode="Opaque" x="1105" y="31" width="123" height="20" backcolor="#1BF2AE"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b7d21076-e709-44e9-8d0b-3ea9143821ec" mode="Opaque" x="1228" y="31" width="143" height="20" backcolor="#1BF2AE"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Net Billing]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="8f2df64c-e760-44c4-83b2-c22bb356b0bb" mode="Opaque" x="608" y="0" width="763" height="31" backcolor="#1BF2AE"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="350dbc96-66fe-41cc-9e98-58addbb18079" x="0" y="0" width="100" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{state_id}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="7604aaa1-b0ed-48b8-ad32-98f0964adb73" x="100" y="0" width="100" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ho_branch_id}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="e425a111-1b5b-43a3-b59f-36230bf09d64" x="200" y="0" width="189" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{division_id}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="6364629f-e026-47be-98b5-dd6c7f6a242e" x="389" y="0" width="100" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{year_ctc}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="21998962-4a7e-445e-b597-e689f0dcba22" x="489" y="0" width="119" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{month_ctc}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="144e2330-e817-45b3-8498-993e1a04db98" x="608" y="0" width="218" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{profession_fee}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="6bce9e3d-f3ab-471b-ae00-004fbf854069" x="826" y="0" width="156" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{expense}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="40ed1970-46ff-45ad-a21a-01f66b694446" x="982" y="0" width="123" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{gross}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="b068dc98-aa2b-474c-997a-eb94a814fcd3" x="1105" y="0" width="123" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{mre}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="4fd01c58-4185-4717-a94e-7b44d9366c6d" x="1228" y="0" width="143" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{net}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

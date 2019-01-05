@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+     <record id="purchase_order_inherit_form" model="ir.ui.view">
+            <field name="name">purchase.order.form</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header/button[@string='Receive Invoice']" position="after">
+                	<button name="action_modify_order_line" string="Modify" type="object" attrs="{'invisible': ['|','|','|',('state','!=', 'approved'),('is_modify','=', True),('shipped','=', True),('invoiced','=', True)]}" class="oe_highlight"/>
+                	<button name="action_update_order_line" string="Update" type="object" attrs="{'invisible': ['|',('state','!=', 'approved'),('is_modify','!=', True)]}" class="oe_highlight"/>
+                </xpath>
+                <field name="date_order" position="after">
+                	<field name="is_modify" invisible="1"/>
+                </field>
+                <xpath expr="//notebook/page[1]/field[@name='order_line']" position="attributes">
+                	<attribute name="attrs">{'readonly': [('is_modify','!=', True),('state','=', 'approved')]}</attribute>
+                </xpath>
+                <xpath expr="//notebook/page[1]/field[@name='order_line']/tree/field[@name='product_qty']" position="after">
+            		<field name="move_state" invisible="1"/>
+            	</xpath>
+            	<xpath expr="//notebook/page[1]/field[@name='order_line']/tree/field[@name='product_qty']" position="attributes">
+                	<attribute name="attrs">{'readonly': [('move_state','=', 'done')]}</attribute>
+                </xpath>
+                <xpath expr="//notebook/page[1]/field[@name='order_line']/tree/field[@name='product_id']" position="attributes">
+                	<attribute name="attrs">{'readonly': [('move_state','in', ('done','assigned'))]}</attribute>
+                </xpath>
+                <xpath expr="//notebook/page[1]/field[@name='order_line']/tree/field[@name='name']" position="attributes">
+                	<attribute name="attrs">{'readonly': [('move_state','in', ('done','assigned'))]}</attribute>
+                </xpath>
+                <xpath expr="//notebook/page[1]/field[@name='order_line']/tree/field[@name='price_unit']" position="attributes">
+                	<attribute name="attrs">{'readonly': [('move_state','=', 'done')]}</attribute>
+                </xpath>
+                <xpath expr="//notebook/page[1]/field[@name='order_line']/tree/field[@name='date_planned']" position="attributes">
+                	<attribute name="attrs">{'readonly': [('move_state','in', ('done','assigned'))]}</attribute>
+                </xpath>
+                 <xpath expr="//notebook/page[1]/field[@name='order_line']/tree/field[@name='taxes_id']" position="attributes">
+                	<attribute name="attrs">{'readonly': [('move_state','in', ('done','assigned'))]}</attribute>
+                </xpath>
+                <xpath expr="//notebook/page[1]/field[@name='order_line']/tree/field[@name='account_analytic_id']" position="attributes">
+                	<attribute name="attrs">{'readonly': [('move_state','in', ('done','assigned'))]}</attribute>
+                </xpath>
+                <xpath expr="//notebook/page[1]/field[@name='order_line']/tree/field[@name='product_uom']" position="attributes">
+                	<attribute name="attrs">{'readonly': [('move_state','in', ('done','assigned'))]}</attribute>
+                </xpath>
+            </field>
+        </record>
+    
+    </data>
+</openerp>

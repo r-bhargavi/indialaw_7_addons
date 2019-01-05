@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+         <record id="legal_e_reports_view_res_company_form_inherit" model="ir.ui.view">
+            <field name="name">legal_e.view.res.company.form.inherit</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="legal_e.view_res_company_form_inherit"/>
+            <field name="arch" type="xml">                     
+                <data>
+	                <xpath expr="//page[@string='Expense Accounts']" position="after">
+	                   	<page string="Cost Report">
+	                        <field name="cost_report_ids" nolabel="1" colspan="4">
+		                        <form string="Cost Report Headings" version="7.0">
+                                    <group>
+                                        <field name="sequence" required="1"/>
+                                        <field name="name" required="1"/>
+                                    </group>
+                                    <newline/>
+                                    <group string="Accounts">
+                                        <field name="account_ids" nolabel="1" colspan="4" domain="[('type','!=','view')]"/>
+                                    </group>
+	                            </form>
+	                            <tree string="Cost Report Headings">
+	                                   <field name="sequence"/>
+                                       <field name="name"/>
+	                            </tree>
+                            </field>
+	                        
+	                    </page>
+	                </xpath>
+                </data>
+            </field>
+        </record>
+	</data>
+</openerp>	    
